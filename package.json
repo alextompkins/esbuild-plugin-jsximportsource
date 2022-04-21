@@ -1,0 +1,48 @@
+{
+  "name": "esbuild-plugin-jsximportsource",
+  "version": "0.0.0",
+  "description": "A plugin for esbuild that enables use of the @jsxImportSource pragma",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Alex Tompkins",
+  "license": "MIT",
+  "homepage": "https://github.com/alextompkins/esbuild-plugin-jsximportsource",
+  "repository": "git+https://github.com/alextompkins/esbuild-plugin-jsximportsource.git",
+  "keywords": [
+    "esbuild",
+    "plugin",
+    "jsx",
+    "import",
+    "source"
+  ],
+  "files": [
+    "lib",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=13"
+  },
+  "scripts": {
+    "build": "tsc",
+    "format:check": "prettier --check \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "format:write": "npm run format:check -- --write",
+    "lint:check": "eslint --ext \".js,.jsx,.ts,.tsx\" .",
+    "lint:fix": "npm run lint -- --fix",
+    "prepack": "npm run types"
+  },
+  "peerDependencies": {
+    "esbuild": "^0.14.38"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.3"
+  }
+}
