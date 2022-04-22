@@ -27,7 +27,6 @@ jobs:
         with:
           node-version: 16.x
           cache: npm
-          registry-url: https://npm.pkg.github.com/
 
       - run: npm ci
       - run: npm run lint:check && npm run format:check
