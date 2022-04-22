@@ -5,7 +5,7 @@ export interface Options {
   filter?: RegExp;
 }
 
-export interface ImportSourceResult {
+interface ImportSourceResult {
   pragmaStart: number;
   pragmaEnd: number;
   importFrom: string;
