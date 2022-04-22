@@ -1,0 +1,20 @@
+name: 'test'
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'releases/*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - run: npm run lint:check && npm run format:check
+        if: ${{ always() }}
+      - run: npm run build
+        if: ${{ always() }}
+      - run: npm run test
+        if: ${{ always() }}
