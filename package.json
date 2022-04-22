@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-jsximportsource",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A plugin for esbuild that enables use of the @jsxImportSource pragma",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
