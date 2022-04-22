@@ -45,13 +45,16 @@ const convertPragma = (
   );
 };
 
+const getLoaderFromPath = (path: string) =>
+  path.includes('.ts') ? 'tsx' : 'jsx';
+
 const createPlugin = (
   { filter = DEFAULT_FILTER }: Options = { filter: DEFAULT_FILTER }
 ): Plugin => ({
   name: 'jsximportsource',
   setup: (build) => {
-    build.onLoad({ filter }, async (args) => {
-      const input = String(await fs.promises.readFile(args.path));
+    build.onLoad({ filter }, async ({ path }) => {
+      const input = String(await fs.promises.readFile(path));
 
       const jsxImportSourceResult = containsJsxImportSourcePragma(input);
 
@@ -61,7 +64,7 @@ const createPlugin = (
 
       return {
         contents: output,
-        loader: 'jsx'
+        loader: getLoaderFromPath(path)
       };
     });
   }
