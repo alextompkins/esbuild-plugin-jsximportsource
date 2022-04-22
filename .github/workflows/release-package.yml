@@ -35,11 +35,8 @@ jobs:
         if: ${{ always() }}
 
       - name: npm auth
-        run: npm set "//registry.npmjs.org/:_authToken" ${{ env.NPM_TOKEN }}
-
+        run: npm set "//registry.npmjs.org/:_authToken" ${{ secrets.NPM_TOKEN }}
       - run: |
           git config --global user.name ${{ secrets.ACTION_GITHUB_USERNAME }};
           git config --global user.email ${{ secrets.ACTION_GITHUB_EMAIL }};
       - run: npm run release -- ${{ github.event.inputs.version }} --ci
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
