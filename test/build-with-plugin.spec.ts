@@ -23,15 +23,19 @@ async function buildExample(type: TestType) {
   });
 }
 
+const trimCarriageReturns = (str: string): string => str.replace(/\r/gm, '');
+
 describe('esbuild-plugin-jsximportsource', () =>
   tests.forEach((test) =>
     it(`should match the expected output for '${test}'`, async () => {
       await buildExample(test);
 
-      const actual = String(await fs.promises.readFile(TEST_OUTPUT_FILE));
+      const actual = trimCarriageReturns(
+        String(await fs.promises.readFile(TEST_OUTPUT_FILE))
+      );
 
-      const expected = String(
-        await fs.promises.readFile(`test/expected/${test}.expected.js`)
+      const expected = trimCarriageReturns(
+        String(await fs.promises.readFile(`test/expected/${test}.expected.js`))
       );
 
       expect(actual).toBe(expected);
