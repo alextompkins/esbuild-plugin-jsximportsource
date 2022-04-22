@@ -17,7 +17,7 @@
   "parserOptions": {
     "ecmaVersion": 9,
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.lint.json"
   },
   "rules": {
     "prettier/prettier": "warn",
