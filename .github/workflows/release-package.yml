@@ -1,4 +1,4 @@
-name: Publish Package
+name: release
 on:
   workflow_dispatch:
     inputs:
@@ -25,7 +25,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: https://registry.npmjs.org
 
       - run: npm ci
       - run: npm run lint:check && npm run format:check
