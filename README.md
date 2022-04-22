@@ -10,7 +10,7 @@ npm i esbuild-plugin-jsximportsource
 Just add it to your esbuild plugins:
 
 ```js
-import jsxImportSourcePlugin from 'esbuild-plugin-jsximportsource';
+import { jsxImportSourcePlugin } from 'esbuild-plugin-jsximportsource';
 
 await esbuild.build({
   ...

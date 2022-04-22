@@ -67,4 +67,4 @@ const createPlugin = (
   }
 });
 
-export default createPlugin;
+export { createPlugin as jsxImportSourcePlugin };

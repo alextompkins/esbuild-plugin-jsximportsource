@@ -1,7 +1,7 @@
 import { build, BuildOptions } from 'esbuild';
 import fs from 'fs';
 
-import jsxImportSourcePlugin from '../src';
+import { jsxImportSourcePlugin } from '../src';
 
 const tests = ['emotion', 'noPragma', 'react'] as const;
 type TestType = typeof tests[number];
