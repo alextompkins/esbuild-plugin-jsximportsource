@@ -14,25 +14,25 @@ export interface ImportSourceResult {
 const DEFAULT_FILTER = /.(jsx|tsx)/;
 
 const JSXIMPORT_SOURCE_PRAGMA_PATTERN =
-  /\/\*\* @jsxImportSource ([\w@/]+) \*\//;
+  /\/\*\* @jsxImportSource (?<importSource>[\w@/]+) \*\//;
 
 const containsJsxImportSourcePragma = (
   contents: string
 ): ImportSourceResult | null => {
   const match = JSXIMPORT_SOURCE_PRAGMA_PATTERN.exec(contents);
 
-  if (!match) return null;
+  if (!match || !match.groups) return null;
 
   return {
     pragmaStart: match.index,
-    pragmaEnd: 0,
-    importFrom: match[0]
+    pragmaEnd: match.index + match[0].length,
+    importFrom: match.groups.importSource
   };
 };
 
 const generateJsxPragmaFor = (importFrom: string) =>
   `/** @jsx jsx */
-import { jsx } from ${importFrom}`;
+import { jsx } from '${importFrom}'`;
 
 const convertPragma = (
   input: string,
@@ -60,7 +60,7 @@ const createPlugin = (
         : input;
 
       return {
-        output,
+        contents: output,
         loader: 'jsx'
       };
     });
