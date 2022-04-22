@@ -39,5 +39,7 @@ describe('esbuild-plugin-jsximportsource', () =>
       );
 
       expect(actual).toBe(expected);
+
+      await fs.promises.unlink(TEST_OUTPUT_FILE);
     })
   ));
