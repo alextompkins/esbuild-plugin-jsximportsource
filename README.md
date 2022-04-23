@@ -1,4 +1,7 @@
 # esbuild-plugin-jsximportsource
+
+[![test](https://github.com/alextompkins/esbuild-plugin-jsximportsource/actions/workflows/test.yml/badge.svg)](https://github.com/alextompkins/esbuild-plugin-jsximportsource/actions/workflows/test.yml)
+
 An esbuild plugin to support the `@jsxImportSource` pragma.
 
 ## Install
