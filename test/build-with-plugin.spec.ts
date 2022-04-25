@@ -11,8 +11,6 @@ const TEST_OUTPUT_FILE = './test/output.js';
 const esbuildOptions: BuildOptions = {
   plugins: [jsxImportSourcePlugin()],
   outfile: TEST_OUTPUT_FILE,
-  resolveExtensions: ['.tsx', '.ts', '.jsx', '.js'],
-  target: 'es6',
   tsconfig: './tsconfig.json'
 };
 
