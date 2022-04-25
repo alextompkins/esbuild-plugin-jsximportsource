@@ -2,11 +2,14 @@
 import { css } from '@emotion/react';
 
 export const Component = () => (
-  <div
-    css={css`
-      background-color: hotpink;
-    `}
-  >
-    Hello!
-  </div>
+  <>
+    <span>Why,</span>
+    <div
+      css={css`
+        background-color: hotpink;
+      `}
+    >
+      hello there.
+    </div>
+  </>
 );

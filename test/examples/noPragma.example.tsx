@@ -1,3 +1,8 @@
 import React from 'react';
 
-export const Component = () => <div>Hello!</div>;
+export const Component = () => (
+  <>
+    <span>Why,</span>
+    <div>hello there.</div>
+  </>
+);
