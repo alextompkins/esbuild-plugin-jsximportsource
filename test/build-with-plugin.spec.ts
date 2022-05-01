@@ -1,23 +1,23 @@
 import { build, BuildOptions } from 'esbuild';
-import fs from 'fs';
+import * as fs from 'fs';
 
 import { jsxImportSourcePlugin } from '../src';
 
 const tests = ['emotion', 'noPragma', 'react'] as const;
 type TestType = typeof tests[number];
 
-const TEST_OUTPUT_FILE = './test/output.js';
+const OUT_DIR = 'test/output';
 
 const esbuildOptions: BuildOptions = {
   plugins: [jsxImportSourcePlugin()],
-  outfile: TEST_OUTPUT_FILE,
   tsconfig: './tsconfig.json'
 };
 
 async function buildExample(type: TestType) {
   await build({
     ...esbuildOptions,
-    entryPoints: [`test/examples/${type}.example.tsx`]
+    entryPoints: [`test/examples/${type}.example.tsx`],
+    outfile: `${OUT_DIR}/${type}.example.js`
   });
 }
 
@@ -29,7 +29,7 @@ describe('esbuild-plugin-jsximportsource', () =>
       await buildExample(test);
 
       const actual = trimCarriageReturns(
-        String(await fs.promises.readFile(TEST_OUTPUT_FILE))
+        String(await fs.promises.readFile(`${OUT_DIR}/${test}.example.js`))
       );
 
       const expected = trimCarriageReturns(
@@ -37,7 +37,5 @@ describe('esbuild-plugin-jsximportsource', () =>
       );
 
       expect(actual).toBe(expected);
-
-      await fs.promises.unlink(TEST_OUTPUT_FILE);
     })
   ));

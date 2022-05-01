@@ -31,6 +31,9 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
+    "serve": "live-server test",
+    "watch-examples": "ts-node test/watch-examples.ts",
+    "watch-and-serve": "concurrently --kill-others -p \"[{name}]\" -n \"build,serve\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run watch-examples\" \"npm run serve\"",
     "format:check": "prettier --check \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "format:write": "npm run format:check -- --write",
     "lint:check": "eslint --ext \".js,.jsx,.ts,.tsx\" .",
@@ -46,17 +49,23 @@
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.25",
     "@types/react": "^18.0.6",
+    "@types/react-dom": "^18.0.3",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
+    "concurrently": "^7.1.0",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "fast-glob": "^3.2.11",
     "jest": "^27.5.1",
+    "live-server": "^1.2.2",
     "prettier": "^2.6.2",
     "react": "^18.0.0",
+    "react-dom": "^18.1.0",
     "release-it": "^14.14.2",
     "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   }
 }

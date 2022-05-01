@@ -102,5 +102,5 @@ lib/**/*
 .idea
 *.iml
 
-# esbuild output from tests
-test/output.js
+# esbuild output
+test/output/
