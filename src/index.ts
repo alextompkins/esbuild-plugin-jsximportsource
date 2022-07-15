@@ -1,5 +1,5 @@
 import { Plugin } from 'esbuild';
-import fs from 'fs';
+import fs from 'node:fs';
 
 export interface Options {
   filter?: RegExp;
