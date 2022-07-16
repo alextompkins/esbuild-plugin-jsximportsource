@@ -1,5 +1,5 @@
 import { build, BuildOptions } from 'esbuild';
-import * as fs from 'fs';
+import * as fs from 'node:fs';
 
 import { jsxImportSourcePlugin } from '../src';
 
