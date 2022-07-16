@@ -4,6 +4,12 @@
 
 An esbuild plugin to support the `@jsxImportSource` pragma.
 
+**BREAKING CHANGE**: v1 of this plugin exports only an ESM entrypoint. 
+This means it will only work using `import` syntax. 
+If you need to use this plugin from a CJS build script, you have two options:
+1. Use a [dynamic import](https://nodejs.org/api/esm.html#import-expressions), which is supported by Node 12+.
+2. Use v0, which exports a CJS entrypoint that you can `require()`. 
+
 ## Install
 ```
 npm i esbuild-plugin-jsximportsource
