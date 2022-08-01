@@ -4,6 +4,8 @@
 
 An esbuild plugin to support the `@jsxImportSource` pragma.
 
+**OBSOLETE**: I am retiring this plugin because [support for the automatic JSX runtime has landed in esbuild as of v0.14.51](https://github.com/evanw/esbuild/releases/tag/v0.14.51). 
+
 **BREAKING CHANGE**: v1 of this plugin exports only an ESM entrypoint. 
 This means it will only work using `import` syntax. 
 If you need to use this plugin from a CJS build script, you have two options:
